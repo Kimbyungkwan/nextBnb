@@ -1,4 +1,6 @@
-## Next - bnb
+# Next - bnb
+
+## 20210317
 
 # project config
 
@@ -270,3 +272,28 @@ const app = ({ Component, pageProps }: AppProps) => {
 
 export default app;
 ```
+
+## 20210318
+
+### React Portal
+
+```jsx
+ReactDom.createPortal(children, container);
+```
+
+첫 번쩨 인자로 리액트 컴포넌트를 받고  
+두 번째 인자로 리액트 컴포넌트를 넣을 DOM을 받게 된다.
+
+-여기서는 \_app.tsx에 #root-modal div를 하나 만들어주고
+
+```tsx
+useEffect(() => {
+  setMounted(true);
+  if (document) {
+    const dom = document.querySelector("#root-modal");
+    ref.current = dom;
+  }
+}, []);
+```
+
+해당 ref로 dom을 지정해준다.

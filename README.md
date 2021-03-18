@@ -281,10 +281,11 @@ export default app;
 ReactDom.createPortal(children, container);
 ```
 
-첫 번쩨 인자로 리액트 컴포넌트를 받고  
+첫 번째 인자로 리액트 컴포넌트를 받고  
 두 번째 인자로 리액트 컴포넌트를 넣을 DOM을 받게 된다.
 
--여기서는 \_app.tsx에 #root-modal div를 하나 만들어주고
+-여기서는 \_app.tsx에 #root-modal div를 하나 만들어주고  
+ModalPortal에서 ref로 DOM을 지정해준다.
 
 ```tsx
 useEffect(() => {
@@ -295,5 +296,3 @@ useEffect(() => {
   }
 }, []);
 ```
-
-해당 ref로 dom을 지정해준다.

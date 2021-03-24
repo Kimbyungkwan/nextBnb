@@ -40,7 +40,11 @@ const ModalPortal: React.FC<IProps> = ({ children, closePortal }) => {
   if (ref.current && moundted) {
     return createPortal(
       <Container>
-        <div className="modal-background" onClick={closePortal} />
+        <div
+          className="modal-background"
+          role="presentation"
+          onClick={closePortal}
+        />
         {children}
       </Container>,
       ref.current

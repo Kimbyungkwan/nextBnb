@@ -273,6 +273,8 @@ const app = ({ Component, pageProps }: AppProps) => {
 export default app;
 ```
 
+---
+
 ## 20210318
 
 ### React Portal
@@ -296,3 +298,65 @@ useEffect(() => {
   }
 }, []);
 ```
+
+---
+
+## 20210323
+
+### role
+
+```
+Visible, non-interactive elements with click handlers must have at least one keyboard listener.
+```
+
+역할 설정을 해줘야 함  
+role = "presentation" 설정
+
+https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-static-element-interactions.md#how-do-i-resolve-this-error
+
+---
+
+### React.InputHTMLAttributes
+
+```ts
+interface IProps extends React.InputHTMLAttributes<HTMLInputElement>
+```
+
+input태그가 가지는 속성들에 대한 타입
+
+---
+
+### styled-component
+
+<>(제네릭)을 사용하여 styled-component의 props에 타입을 추가 할 수 있다.
+
+```ts
+const Conatainer = styled.div<{ iconExist: boolean }>`
+  ...
+    padding: ${({ iconExist }) => (iconExist ? " 0 44px 0 11px" : " 0 11px")};
+  ...
+`;
+```
+
+---
+
+## 20210324
+
+### 재사용 컴포넌트
+
+```ts
+...
+interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+}
+
+const Button: React.FC<IProps> = ({ children, ...props }) => {
+  return <Container {...props}>{children}</Container>;
+};
+...
+```
+
+props를 다양하게 받을 수 있다  
+Container는 styled-component이며 위의 코드는 button을 상속
+
+---

@@ -10,8 +10,9 @@ import Input from "../common/Input";
 import Selector from "../common/Selector";
 import { dayList, monthList, yearList } from "../../lib/staticData";
 import Button from "../common/Button";
+import { signupAPI } from "../../lib/api/auth";
 
-const Container = styled.div`
+const Container = styled.form`
   width: 568px;
   padding: 32px;
   background-color: white;
@@ -104,8 +105,27 @@ const SignUpModal: React.FC = () => {
   const toggleHidePassword = () => {
     setHidePassword(!hidePassword);
   };
+
+  const onSubmitSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const signUpBody = {
+        email,
+        lastName,
+        firstName,
+        password,
+        birthday: new Date(
+          `${birthYear}-${birthMonth!.replace("월", "")}-${birthDay}`
+        ).toISOString(),
+      };
+      await signupAPI(signUpBody);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
-    <Container>
+    <Container onSubmit={onSubmitSignUp}>
       <CloseXIcon className="modal-close-x-icon" />
       <div className="input-wrapper">
         <Input

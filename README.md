@@ -360,3 +360,32 @@ props를 다양하게 받을 수 있다
 Container는 styled-component이며 위의 코드는 button을 상속
 
 ---
+
+## 20210325
+
+### bcrypt
+
+```json
+yarn add bcrypt
+yarn add @types/bcryptjs -D
+```
+
+hashSync("string",salt)으로 암호호를 해싱  
+compareSync("string",해시된 문자)를 통해 값이 일치하는지 확인  
+salt -> 특별한 값 암호에 추가되는 값
+
+---
+
+### JWT
+
+```json
+yarn add jsonwebtoken
+yarn add @types/jsonwebtoken
+```
+
+JWT(json web token)  
+전자 서명된 URL로 이용할 수 있는 문자만 구성된 JSON  
+토큰을 생성하기 위해서는 암호화할 값과 secret키(?)가 필요하다.  
+secret키는 인증 관련된 값이라 따로 보관하는게 좋음(환경변수)
+
+생성된 토큰을 브라우저의 쿠키에 저장하려면 헤더에 set-Cookie설정을 해줘야 함

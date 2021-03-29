@@ -389,3 +389,16 @@ JWT(json web token)
 secret키는 인증 관련된 값이라 따로 보관하는게 좋음(환경변수)
 
 생성된 토큰을 브라우저의 쿠키에 저장하려면 헤더에 set-Cookie설정을 해줘야 함
+
+---
+
+## 20210329
+
+redux
+
+```ts
+yarn add next-redux-wrapper @reduxjs/toolkit react-redux redux
+yarn add @types/react-redux
+```
+
+---

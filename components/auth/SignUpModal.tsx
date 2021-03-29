@@ -72,8 +72,8 @@ const Container = styled.form`
 
 const SignUpModal: React.FC = () => {
   const [email, setEmail] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [firstName, setFirstName] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [firstname, setFirstname] = useState("");
   const [password, setPassword] = useState("");
   const [birthYear, setBirthYear] = useState<string | undefined>();
   const [birthDay, setBirthDay] = useState<string | undefined>();
@@ -82,11 +82,11 @@ const SignUpModal: React.FC = () => {
   const onChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
-  const onChangeLastName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLastName(e.target.value);
+  const onChangeLastname = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLastname(e.target.value);
   };
-  const onChangeFirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFirstName(e.target.value);
+  const onChangeFirstname = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFirstname(e.target.value);
   };
   const onChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
@@ -111,8 +111,8 @@ const SignUpModal: React.FC = () => {
     try {
       const signUpBody = {
         email,
-        lastName,
-        firstName,
+        lastname,
+        firstname,
         password,
         birthday: new Date(
           `${birthYear}-${birthMonth!.replace("월", "")}-${birthDay}`
@@ -140,14 +140,14 @@ const SignUpModal: React.FC = () => {
         <Input
           placeholder="이름(예:길동)"
           icon={<PersonIcon />}
-          onChange={onChangeLastName}
+          onChange={onChangeLastname}
         />
       </div>
       <div className="input-wrapper">
         <Input
           placeholder="성(예:홍)"
           icon={<PersonIcon />}
-          onChange={onChangeFirstName}
+          onChange={onChangeFirstname}
         />
       </div>
       <div className="input-wrapper sign-up-password-input-wrapper">
@@ -176,7 +176,7 @@ const SignUpModal: React.FC = () => {
             options={monthList}
             disabledOptions={["월"]}
             defaultValue="월"
-            onChange={onChangeBirthYear}
+            onChange={onChangeBirthMonth}
           />
         </div>
         <div className="sign-up-modal-birthday-day-selector">
@@ -192,7 +192,7 @@ const SignUpModal: React.FC = () => {
             options={yearList}
             disabledOptions={["년"]}
             defaultValue="년"
-            onChange={onChangeBirthMonth}
+            onChange={onChangeBirthYear}
           />
         </div>
       </div>
